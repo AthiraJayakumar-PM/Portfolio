@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athira Jayakumar - Product Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #87CEEB 0%, #6CB4EE 50%, #4682B4 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: #4682B4;
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+		
+		p + p {
+			margin-top: 1em; /* adds top margin only to paragraphs that follow another paragraph */
+		}
+        
+        section {
+            margin-bottom: 80px;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        h2 {
+            color: #4682B4;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #87CEEB, #4682B4);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+			text-align: justify;
+            align-items: center;
+        }
+        
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #87CEEB, #4682B4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(70, 130, 180, 0.3);
+			overflow: hidden;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .skill-category {
+            background: #F0F8FF;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #4682B4;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateX(10px);
+        }
+        
+        .skill-category h3 {
+            color: #4682B4;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Experience */
+        .experience-item {
+            border-left: 4px solid #4682B4;
+            padding-left: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: #4682B4;
+            border-radius: 50%;
+        }
+        
+        .job-title {
+            color: #4682B4;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .company-date {
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .achievements {
+            list-style: none;
+        }
+        
+        .achievements li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .achievements li::before {
+            content: '▸';
+            color: #4682B4;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, #F0F8FF 0%, #fff 100%);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #E6F3FF;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #87CEEB, #4682B4);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(70, 130, 180, 0.15);
+        }
+        
+        .project-card h3 {
+            color: #4682B4;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .project-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .project-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .project-metrics {
+            background: #F0F8FF;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .project-metrics strong {
+            color: #4682B4;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #87CEEB 0%, #6CB4EE 50%, #4682B4 100%);
+            color: white;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .cta-section h2 {
+            color: white;
+        }
+        
+        .cta-section h2::after {
+            background: white;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #4682B4;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button.download {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-button.download:hover {
+            background: white;
+            color: #4682B4;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            section {
+                padding: 30px 20px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Athira Jayakumar</h1>
+                <p class="subtitle">Product Manager | Strategy & Growth</p>
+                <div class="contact-info">
+                    <a href="mailto:athiraj94@gmail.com" class="contact-item">
+                        <span>📧</span> athiraj94@gmail.com
+                    </a>
+                    <a href="tel:+91 9916682432" class="contact-item">
+                        <span>📱</span> +91 99166 82432
+                    </a>
+                    <a href="https://www.linkedin.com/in/athirajayakumar-/" class="contact-item" target="_blank">
+                        <span>💼</span> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="profile-image"><img src="data:image/jpeg;base64,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" alt="Base64 Image" />
+				</div>
+                <div class="about-text">
+                    <p>As a Product Manager with over three years of experience, I specialize in driving data-informed product strategies and delivering impactful outcomes in the B2B fintech space. My approach combines rigorous data exploration with a strong sense of ownership across the full product lifecycle—from ideation and roadmap planning, to execution and iterative improvement.</p>
+                    <p>I thrive in collaborative environments, working closely with multidisciplinary teams including engineering, QA, design, and business stakeholders. My hands-on experience has enabled me to ship scalable fintech solutions that not only meet business objectives but also elevate user experience and drive measurable improvements in product metrics.</p>
+					<p>I am passionate about transforming complex challenges into actionable plans, leveraging data-backed insights to prioritize features and ensure the delivery of high-quality, high-impact products. With a proven track record of managing and launching products in dynamic startup environments, I am committed to building solutions that empower customers and create lasting value.</p>
+                    <p><strong>Core Philosophy:</strong> Great products are born at the intersection of user needs, business value, and technical feasibility. I excel at finding this sweet spot and building products that matter.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Product Strategy</h3>
+                    <ul class="skill-list">
+                        <li>Product Roadmapping</li>
+                        <li>Market Research & Analysis</li>
+                        <li>Competitive Intelligence</li>
+                        <li>Go-to-Market Strategy</li>
+                        <li>Product Lifecycle Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Analytics & Data</h3>
+                    <ul class="skill-list">
+                        <li>Data Analysis</li>
+                        <li>A/B Testing & Experimentation</li>
+                        <li>SQL</li>
+                        <li>Metrics Definition & Tracking</li>
+                        <li>User Behavior Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Design & Research</h3>
+                    <ul class="skill-list">
+                        <li>User Experience (UX)</li>
+                        <li>User Research</li>
+                        <li>Wireframing</li>
+                        <li>Design Thinking</li>
+                        <li>Figma</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical & Tools</h3>
+                    <ul class="skill-list">
+                        <li>Jira</li>
+                        <li>API & Database Basics</li>
+						<li>Postman</li>
+                        <li>Agile/Scrum Methodologies</li>
+                        <li>Technical Documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-title">Product Manager</div>
+                <div class="company-date">Camsfinserv | April 2025 - Present</div>
+                <ul class="achievements">
+                    <li>Spearheaded the roadmap and delivery of Account Aggregator (AA) & Technology Service Provider (TSP) platforms, growing market share from 12% to 17%</li>
+                    <li>Led API/SDK development and optimization for faster, seamless client onboarding</li>
+                    <li>Conducted in-depth competitive analysis to drive Personal Finance Management launch and ideation of Loan Against Mutual Funds via AA</li>
+                    <li>Managed cross-functional squads—engineering, QA, customer success, infrastructure—to ensure timely, high-impact feature rollouts</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Associate Product Manager</div>
+                <div class="company-date">Camsfinserv | Aug 2022 - March 2025</div>
+                <ul class="achievements">
+                    <li>Launched FNO onboarding automation, cutting turnaround time and scaling market share from 1% to 12%</li>
+					<li>Introduced Bank Account Verification via AA, eliminating cheque uploads and slashing manual rejections</li>
+					<li>Collaborated with design/UX for A/B tests, achieving a 30% boost in user satisfaction</li>
+					<li>Supercharged API performance (↓ latency by 60%); implemented SQS dashboards, reducing troubleshooting by 50% and increasing data conversion to 90%</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Senior Product Analyst</div>
+                <div class="company-date">CAMS | Jan 2022 – Jul 2022</div>
+                <ul class="achievements">
+                    <li>Onboarded 50 AMCs & 4 Custodians, generating ₹50 lakhs in revenue</li>
+                    <li>Led stakeholder research to design user-centric product enhancements</li>
+                </ul>
+            </div>
+			
+			<div class="experience-item">
+                <div class="job-title">Senior Associate Analyst</div>
+                <div class="company-date">ICRA Ltd | Sep 2020 – Dec 2021</div>
+                <ul class="achievements">
+                    <li>Assessed creditworthiness for 20+ corporates using financial modeling & risk analysis</li>
+                </ul>
+            </div>
+			
+			<div class="experience-item">
+                <div class="job-title">Systems Engineer</div>
+                <div class="company-date">Infosys Ltd | Aug 2015 – May 2017</div>
+                <ul class="achievements">
+                    <li>Developed internal web apps to automate workflows</li>
+                    <li>Trained 1,200+ employees in SQL, Python & PHP</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Key Projects & Achievements</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Awarded MD Honors (CAMSFinserv - CAMS) for exceptional performance and dedication</h3>
+                </div>
+				<div class="project-card">
+                    <h3>Recognized for seamless onboarding of 50 clients to the Wealthserv platform</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Let's Build Something Great Together</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Ready to discuss how I can help drive your product vision forward?</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+            <a href="#" class="cta-button download" onclick="downloadResume()" id="downloadBtn">📄 Download Resume</a>
+        </section>
+		
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active nav state
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+                            navLinks.forEach(link => {
+                link.style.background = '';
+                link.style.color = '#333';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.background = '#4682B4';
+                    link.style.color = 'white';
+                }
+            });
+        });
+
+        // Resume download functionality
+        function downloadResume() {
+            // Create a comprehensive resume based on the portfolio data
+            const resumeContent = generateResumeHTML();
+            
+            // Create a new window with the resume
+            const resumeWindow = window.open('', '_blank');
+            resumeWindow.document.write(resumeContent);
+            resumeWindow.document.close();
+            
+            // Trigger print dialog for PDF save
+            setTimeout(() => {
+                resumeWindow.print();
+            }, 1000);
+        }
+
+        function generateResumeHTML() {
+            return `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Resume - Your Name</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Georgia', serif; 
+            line-height: 1.6; 
+            color: #333; 
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+            background: white;
+        }
+        .header { 
+            text-align: center; 
+            border-bottom: 3px solid #ff6b6b; 
+            padding-bottom: 20px; 
+            margin-bottom: 30px; 
+        }
+        .header h1 { 
+            font-size: 2.5rem; 
+            color: #4682B4; 
+            margin-bottom: 10px; 
+        }
+        .header p { 
+            font-size: 1.1rem; 
+            color: #666; 
+            margin-bottom: 5px; 
+        }
+        .section { 
+            margin-bottom: 30px; 
+        }
+        .section-title { 
+            font-size: 1.3rem; 
+            color: #4682B4; 
+            border-bottom: 2px solid #4682B4; 
+            padding-bottom: 5px; 
+            margin-bottom: 15px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .job { 
+            margin-bottom: 20px; 
+        }
+        .job-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 5px; 
+        }
+        .job-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #333; 
+        }
+        .job-company { 
+            font-style: italic; 
+            color: #666; 
+        }
+        .job-date { 
+            color: #999; 
+            font-size: 0.9rem; 
+        }
+        .job-achievements { 
+            list-style-type: none; 
+            padding-left: 0; 
+        }
+        .job-achievements li { 
+            margin-bottom: 5px; 
+            padding-left: 15px; 
+            position: relative; 
+        }
+        .job-achievements li:before { 
+            content: '•'; 
+            color: #4682B4; 
+            font-weight: bold; 
+            position: absolute; 
+            left: 0; 
+        }
+        .skills-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; 
+        }
+        .skill-category h4 { 
+            color: #4682B4; 
+            margin-bottom: 8px; 
+            font-size: 1rem; 
+        }
+        .skill-list { 
+            list-style: none; 
+        }
+        .skill-list li { 
+            display: inline; 
+            margin-right: 10px; 
+            font-size: 0.9rem; 
+        }
+        .skill-list li:after { 
+            content: ' •'; 
+            color: #4682B4; 
+        }
+        .skill-list li:last-child:after { 
+            content: ''; 
+        }
+        .project { 
+            margin-bottom: 15px; 
+            padding-bottom: 15px; 
+            border-bottom: 1px solid #eee; 
+        }
+        .project:last-child { 
+            border-bottom: none; 
+        }
+        .project h4 { 
+            color: #4682B4; 
+            margin-bottom: 5px; 
+        }
+        .project-impact { 
+            font-style: italic; 
+            color: #666; 
+            font-size: 0.9rem; 
+            margin-top: 5px; 
+        }
+        @media print {
+            body { font-size: 12px; }
+            .header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Your Name</h1>
+        <p>Senior Product Manager</p>
+        <p>your.email@example.com | +1 (234) 567-8900 | linkedin.com/in/yourprofile</p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p>Results-driven Product Manager with 5+ years of experience leading cross-functional teams to deliver innovative products that drive business growth. Passionate about user-centric design and data-driven decision making with proven track record of increasing user engagement by 40% and driving $5M ARR growth.</p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Senior Product Manager</div>
+                    <div class="job-company">TechCorp Inc.</div>
+                </div>
+                <div class="job-date">2022 - Present</div>
+            </div>
+            <ul class="job-achievements">
+                <li>Led product strategy for flagship mobile app with 2M+ active users</li>
+                <li>Increased user engagement by 40% through data-driven feature optimization</li>
+                <li>Managed cross-functional team of 12 engineers, designers, and analysts</li>
+                <li>Drove $5M ARR growth through new premium feature launch</li>
+                <li>Implemented agile methodologies reducing time-to-market by 30%</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Product Manager</div>
+                    <div class="job-company">StartupXYZ</div>
+                </div>
+                <div class="job-date">2020 - 2022</div>
+            </div>
+            <ul class="job-achievements">
+                <li>Built product from 0 to 1, achieving product-market fit within 18 months</li>
+                <li>Conducted 100+ user interviews to validate product hypotheses</li>
+                <li>Launched MVP that acquired 50K users in first 6 months</li>
+                <li>Established product analytics infrastructure and KPI framework</li>
+                <li>Collaborated with sales team to achieve 150% of revenue targets</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Associate Product Manager</div>
+                    <div class="job-company">Growth Solutions Ltd.</div>
+                </div>
+                <div class="job-date">2019 - 2020</div>
+            </div>
+            <ul class="job-achievements">
+                <li>Supported senior PM in managing B2B SaaS platform roadmap</li>
+                <li>Conducted competitive analysis and market research</li>
+                <li>Coordinated feature releases and managed stakeholder communication</li>
+                <li>Improved onboarding flow reducing churn by 25%</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Key Projects</h2>
+        
+        <div class="project">
+            <h4>E-commerce Mobile App Redesign</h4>
+            <p>Led complete redesign of mobile shopping experience focusing on conversion optimization and user satisfaction.</p>
+            <p class="project-impact">Impact: 60% increase in mobile conversion rate, $2M additional quarterly revenue</p>
+        </div>
+
+        <div class="project">
+            <h4>AI-Powered Recommendation Engine</h4>
+            <p>Launched personalized recommendation system using machine learning to improve product discovery.</p>
+            <p class="project-impact">Impact: 35% increase in click-through rates, 28% higher average order value</p>
+        </div>
+
+        <div class="project">
+            <h4>B2B Dashboard Analytics Platform</h4>
+            <p>Built comprehensive analytics dashboard for enterprise clients providing real-time insights.</p>
+            <p class="project-impact">Impact: 90% client adoption rate, $1.5M in new enterprise contracts</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Product Strategy</h4>
+                <ul class="skill-list">
+                    <li>Product Roadmapping</li>
+                    <li>Market Research</li>
+                    <li>Competitive Intelligence</li>
+                    <li>Go-to-Market Strategy</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Analytics & Data</h4>
+                <ul class="skill-list">
+                    <li>Google Analytics</li>
+                    <li>A/B Testing</li>
+                    <li>SQL & Data Analysis</li>
+                    <li>KPI Tracking</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Design & Research</h4>
+                <ul class="skill-list">
+                    <li>User Experience (UX)</li>
+                    <li>User Research</li>
+                    <li>Wireframing</li>
+                    <li>Design Thinking</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Technical & Tools</h4>
+                <ul class="skill-list">
+                    <li>Jira & Confluence</li>
+                    <li>Agile/Scrum</li>
+                    <li>API Basics</li>
+                    <li>Product Management Tools</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Bachelor of Science in Business Administration</div>
+                    <div class="job-company">University Name</div>
+                </div>
+                <div class="job-date">2015 - 2019</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>`;
+        }
+    </script>
+</body>
+</html>
